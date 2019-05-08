@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './header.js';
+import Main from './main.js';
 
 class App extends React.Component {
   constructor(props){
