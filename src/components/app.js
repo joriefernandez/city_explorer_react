@@ -1,10 +1,16 @@
 import React from 'react';
 import Header from './header.js';
-import Main from './main.js';
+import SearchForm from './searchForm.js';
+import Map from './map.js';
+import SearchResults from './searchResults.js';
 
 class App extends React.Component {
   constructor(props){
     super(props);
+
+    this.state = {
+      location: {}
+    };
   }
 
   //render
@@ -12,7 +18,9 @@ class App extends React.Component {
     return(
       <React.Fragment>
         <Header />
-        <Main />
+        <SearchForm />
+        <Map />
+        <SearchResults />
       </React.Fragment>
     )
   }

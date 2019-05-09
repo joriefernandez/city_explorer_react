@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Search extends React.Component{
+class SearchForm extends React.Component{
   constructor(props){
     super(props);
 
@@ -24,12 +24,12 @@ class Search extends React.Component{
 
   render(){
     return(
-      <div>
+      <form>
         <input onChange={this.handleLocation} />
         <button onClick={this.handleClick}>Search</button>
-      </div>
+      </form>
     );
   }
 }
 
-export default Search;
+export default SearchForm;
