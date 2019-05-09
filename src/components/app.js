@@ -2,22 +2,22 @@ import React from 'react';
 import Header from './header.js';
 import SearchForm from './search-form.js';
 import Map from './map.js';
-import SearchResults from './search-results.js/';
+import SearchResults from './search-results.js';
+
+
 
 class App extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
-      location: ''
+      location: {}
     };
   }
 
-
-
-  handleClick = (location) => {
-    console.log(location)
-    // this.setState({location: location});
+  handleForm = (result) => {
+    this.setState({ location: result });
+    console.log('Location', this.state.location );
     
   };
 
@@ -27,8 +27,8 @@ class App extends React.Component {
     return(
       <React.Fragment>
         <Header />
-        <SearchForm handleClick={this.handleClick} />
-        <Map />
+        <SearchForm handleForm = {this.handleForm}/>
+        <Map latitude={this.state.location.latitude} longitude={this.state.location.longitude} />
         <SearchResults />
       </React.Fragment>
     )
