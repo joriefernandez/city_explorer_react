@@ -4,18 +4,21 @@ import SearchForm from './search-form.js';
 import Map from './map.js';
 import SearchResults from './search-results.js';
 
+
+
 class App extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
-      location: ''
+      location: {}
     };
   }
 
   handleForm = (result) => {
     this.setState({ location: result });
-    console.log(this.state.location);
+    console.log('Location', this.state.location );
+    
   };
 
 
@@ -25,7 +28,7 @@ class App extends React.Component {
       <React.Fragment>
         <Header />
         <SearchForm handleForm = {this.handleForm}/>
-        <Map />
+        <Map latitude={this.state.location.latitude} longitude={this.state.location.longitude} />
         <SearchResults />
       </React.Fragment>
     )
