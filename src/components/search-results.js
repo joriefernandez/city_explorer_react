@@ -5,9 +5,8 @@ import MovieDB from '../components/moviedb.js';
 import EventBrite from '../components/eventbrite.js';
 
 class SearchResults extends React.Component{
-  constructor(props){
-    super(props);
-  }
+  
+  
 
   render(){
     return(

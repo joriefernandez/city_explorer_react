@@ -1,32 +1,36 @@
 import React from 'react';
+import superagent from 'superagent';
+
 
 class SearchForm extends React.Component{
   constructor(props){
     super(props);
 
     this.state = {
-      location: '',
+      value: ''
     };
   }
 
-  handleLocation = e => {
-    e.preventDefault();
-    let location = e.target.value;
-    this.setState({location});
+  handleChange = event => {
+    
+    this.setState({value: event.target.value});
   };
 
-  handleClick = e => {
+ 
+  handleSubmit = async e => {
     e.preventDefault();
-    let location = this.state.location;
-    this.setState({location});
-    console.log('Search clicked!');
+    this.props.handleForm(this.state.value.toLowerCase());
   };
-
+  
   render(){
     return(
-      <form>
-        <input onChange={this.handleLocation} />
-        <button onClick={this.handleClick}>Search</button>
+      <form onSubmit={this.handleSubmit}>
+       <label>
+          Enter location:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+
       </form>
     );
   }
