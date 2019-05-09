@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../components/header.js';
-import SearchForm from '../components/search-form.js';
-import Map from '../components/map.js';
-import SearchResults from '../components/search-results.js';
+import Header from './header.js';
+import SearchForm from './search-form.js/index.js';
+import Map from './map.js';
+import SearchResults from './search-results.js/index.js';
 
 class App extends React.Component {
   constructor(props){
