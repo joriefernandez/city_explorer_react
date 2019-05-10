@@ -1,0 +1,21 @@
+
+
+img, h2{
+  padding: $gutter_std;
+  margin: $margin_std;
+}
+
+section {
+  display: $flex_std;
+  flex-flow: $flex_row; 
+  width: 97%;
+  margin: $margin_std;
+}
+
+section div {
+  width: $col_width;
+}
+
+li {
+  padding: $gutter_std / 2;
+}

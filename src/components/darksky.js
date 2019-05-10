@@ -10,10 +10,10 @@ class Darksky extends React.Component{
       <li key={idx}>{item}</li>
     ));
     return(
-      <React.Fragment>
+      <div>
         <h2>Weather Results</h2>
         <ul>{renderWeather}</ul>
-      </React.Fragment>
+      </div>
      
     );
   }

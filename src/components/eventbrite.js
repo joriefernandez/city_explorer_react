@@ -11,10 +11,10 @@ class EventBrite extends React.Component{
     </li>
     ));
     return(
-      <React.Fragment>
+      <div>
         <h2>EventBrite Results</h2>
         <ul>{results}</ul>
-      </React.Fragment>
+      </div>
      
     );
   }

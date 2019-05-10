@@ -10,12 +10,12 @@ class SearchResults extends React.Component{
 
   render(){
     return(
-      <React.Fragment>
+      <section>
         <Darksky weather={this.props.weather} />
         <EventBrite event={this.props.event} />
         <Yelp yelp={this.props.yelp} />
         <MovieDB movies={this.props.movies} />
-      </React.Fragment>
+      </section>
      
     );
   }
