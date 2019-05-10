@@ -12,19 +12,16 @@ class SearchForm extends React.Component{
   }
 
   handleChange = event => {
-    
     this.setState({value: event.target.value});
   };
 
  
   handleSubmit = async e => {
     e.preventDefault();
-    await superagent.get('https://secret-beyond-37824.herokuapp.com/location').query({data: this.state.value.toLowerCase()})
+    await superagent.get('https://intense-earth-74704.herokuapp.com/location').query({data: this.state.value.toLowerCase()})
       .then(result => {
         this.props.handleForm(result.body);
-      });
-    
-    
+      }); 
   };
   
   render(){

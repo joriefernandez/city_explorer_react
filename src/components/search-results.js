@@ -11,10 +11,10 @@ class SearchResults extends React.Component{
   render(){
     return(
       <React.Fragment>
-        <Darksky lat={this.props.latitude}  longitude={this.props.longitude} />
-        <EventBrite lat={this.props.latitude}  longitude={this.props.longitude} />
-        <Yelp lat={this.props.latitude}  longitude={this.props.longitude} />
-        <MovieDB lat={this.props.latitude}  longitude={this.props.longitude} />
+        <Darksky weather={this.props.weather} />
+        <EventBrite event={this.props.event} />
+        <Yelp yelp={this.props.yelp} />
+        <MovieDB movies={this.props.movies} />
       </React.Fragment>
      
     );
