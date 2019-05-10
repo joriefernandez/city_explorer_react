@@ -5,7 +5,7 @@ class Darksky extends React.Component{
   
 
   render(){
-    console.log('Weather', this.props.weather);
+    
     let renderWeather = this.props.weather.map((item, idx) => (
       <li key={idx}>{item}</li>
     ));

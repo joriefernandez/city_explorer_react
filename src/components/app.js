@@ -5,7 +5,8 @@ import Map from './map.js';
 import SearchResults from './search-results.js';
 import superagent from 'superagent';
 
-const URL = "https://intense-earth-74704.herokuapp.com";
+
+const URL = "https://citylab09.herokuapp.com";
 
 
 class App extends React.Component {
@@ -15,7 +16,7 @@ class App extends React.Component {
     this.state = {
       location: {},
       weathers: [],
-      events: [],
+      eventbrite: [],
       yelp: [],
       movies: []
     };
@@ -23,28 +24,20 @@ class App extends React.Component {
 
   handleForm = async (result) => {
     this.setState({ location: result });
-    // await this.getAPI('weather');
-    // await this.getAPI('yelp');
-    await this.getMovieAPI();
-    // await this.getAPI('events');
+    console.log('Location', this.state.location);
+    await this.getAPI('weather');
+    await this.getAPI('yelp');
+    await this.getAPI('events');
+    await this.getAPI('movies');
     
   };
 
-  getMovieAPI = async () => {
-    await superagent.get(`${URL}/movies`)
-      .then(result => {
-        
-            this.setState({movies: result.body});
-            console.log('Movies', result.body);
-           
-      
-      }); 
-  };
-
-
-
+  
   getAPI = async (resource) => {
-    await superagent.get(`${URL}/${resource}`).query({data: this.state.location})
+    console.log("Current Loc", this.state.location);
+    await superagent.get(`${URL}/${resource}`)
+      // .query({data: this.state.location})
+      .query( { data: { search_query: this.state.location.search_query, formatted_query: this.state.location.formatted, latitude: this.state.location.latitude, longitude: this.state.location.longitude } })
       .then(result => {
         switch(resource){
           case 'weather': 
@@ -53,17 +46,17 @@ class App extends React.Component {
             break;
           case 'events':
             
-            this.setState({events: result.body});
+            this.setState({eventbrite: result.body});
             console.log('Events', result.body);
             break;
           case 'yelp':
             this.setState({yelp: result.body});
             console.log('Yelp', this.state.yelp);
             break;
-          // case 'movies':
-          //   this.setState({movies: result.body});
-          //   console.log('Movies', result.body);
-          //   break;
+          case 'movies':
+            this.setState({movies: result.body});
+            console.log('Movies', result.body);
+            break;
         }
         
       
@@ -79,7 +72,7 @@ class App extends React.Component {
         <Header />
         <SearchForm handleForm = {this.handleForm}/>
         <Map latitude={this.state.location.latitude} longitude={this.state.location.longitude} />
-        <SearchResults weather={this.state.weathers} event={this.state.events} yelp={this.state.yelp}   />
+        <SearchResults weather={this.state.weathers} event={this.state.eventbrite} yelp={this.state.yelp} movies={this.state.movies}  />
       </React.Fragment>
     )
   }
