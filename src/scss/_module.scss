@@ -1,0 +1,45 @@
+h2 {
+  background: $blue;
+  padding: $gutter_std;
+  color: $white;
+}
+
+.list {
+  background: $home_bg / 2;
+  @extend h2;
+
+  li {
+      background: $white;
+      transition: $animation_time all;
+
+      &:hover {
+          background: $black;
+          color: $white;
+      }
+  }
+}
+
+main {
+  > div {
+      background: $black;
+      color: $white;
+      padding: $gutter_std;
+  }
+}
+
+form {
+  display: inline-block;
+  font-size: $font-size;
+  width: 500px;
+  margin: 30px auto;
+}
+ input{
+   background: $blue;
+   color: $white;
+   
+ }
+
+ .map {
+  width: $img_width * 3;
+  height: $img_height * 2;
+ }

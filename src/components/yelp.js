@@ -14,10 +14,10 @@ class Yelp extends React.Component{
       
     ));
     return(
-      <React.Fragment>
+      <div>
         <h2>Yelp Results</h2>
         <ul>{renderYelp}</ul>
-      </React.Fragment>
+      </div>
      
     );
   }

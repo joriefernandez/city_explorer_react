@@ -14,7 +14,7 @@ class Map extends React.Component{
   
     return(
       <div>
-        <img src= {map_url} alt ="map"/>
+        <img className='map'src= {map_url} alt ='map'/>
       </div>
     );
   }

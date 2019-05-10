@@ -11,10 +11,10 @@ class MovieDB extends React.Component{
     </li>
     ));
     return(
-      <React.Fragment>
+      <div>
         <h2>MovieDB Results</h2>
         <ul>{results}</ul>
-      </React.Fragment>
+      </div>
      
     );
   }

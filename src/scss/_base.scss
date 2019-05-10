@@ -1,0 +1,31 @@
+body {
+  background: $bg_std;
+  font-family: $font_std;
+  font-size: 1.5 vw;
+  position: relative;
+  text-align: center;
+  
+}
+
+h1 {
+  font-family: $header_font;
+  font-size: 7vw;
+  text-align: center;
+  color: $white;
+  padding: $gutter_std;
+  background: $blue;
+ 
+}
+
+p {
+  line-height: 1em;
+}
+
+img {
+  width: $img_width;
+  height: $img_height;
+}
+
+span{
+  font-weight: bold;
+}
