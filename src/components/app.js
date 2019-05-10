@@ -3,6 +3,7 @@ import Header from './header.js';
 import SearchForm from './search-form.js';
 import Map from './map.js';
 import SearchResults from './search-results.js';
+import superagent from 'superagent';
 
 
 
@@ -11,14 +12,25 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      location: {}
+      location: {},
+      weathers: []
     };
   }
 
   handleForm = (result) => {
     this.setState({ location: result });
-    console.log('Location', this.state.location );
+    this.getWeatherAPI();
     
+  };
+
+  getWeatherAPI = async () => {
+    await superagent.get('https://intense-earth-74704.herokuapp.com/weather').query({data: this.state.location})
+      .then(result => {
+        
+        let mod_weathers = result.body.map(currentWeather => `${currentWeather.time}: ${currentWeather.forecast}` );
+        this.setState({weathers: mod_weathers});
+        
+      }); 
   };
 
 
@@ -29,7 +41,7 @@ class App extends React.Component {
         <Header />
         <SearchForm handleForm = {this.handleForm}/>
         <Map latitude={this.state.location.latitude} longitude={this.state.location.longitude} />
-        <SearchResults />
+        <SearchResults weather={this.state.weathers}/>
       </React.Fragment>
     )
   }
